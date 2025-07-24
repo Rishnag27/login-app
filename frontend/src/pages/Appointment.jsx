@@ -12,7 +12,7 @@ export default function Appointment() {
   const fetchAppointments = async () => {
     setLoading(true);
     const token = localStorage.getItem("token");
-    const res = await fetch("http://127.0.0.1:5000/appointments", {
+    const res = await fetch("https://login-app-m004.onrender.com/appointments", {
       headers: { Authorization: "Bearer " + token },
     });
     const data = await res.json();
@@ -27,7 +27,7 @@ export default function Appointment() {
   const handleCreate = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    const res = await fetch("http://127.0.0.1:5000/appointments", {
+    const res = await fetch("https://login-app-m004.onrender.com/appointments", {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
       body: JSON.stringify(form),
@@ -44,7 +44,7 @@ export default function Appointment() {
 
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`http://127.0.0.1:5000/appointments/${id}`, {
+    const res = await fetch(`https://login-app-m004.onrender.com/appointments/${id}`, {
       method: "DELETE",
       headers: { Authorization: "Bearer " + token },
     });

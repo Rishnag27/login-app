@@ -35,7 +35,7 @@ export default function Register() {
     onSubmit: async (values) => {
       setLoading(true); // Form gönderilince yükleniyor başlasın
       try {
-        const res = await fetch("http://127.0.0.1:5000/register", {
+        const res = await fetch("https://login-app-m004.onrender.com/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(values),

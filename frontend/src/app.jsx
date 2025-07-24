@@ -17,7 +17,7 @@ function RoleRoutes({ role, setRole }) {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      fetch("http://127.0.0.1:5000/profile", {
+      fetch("https://login-app-m004.onrender.com/profile", {
         headers: { Authorization: "Bearer " + token },
       })
         .then((res) => res.json())

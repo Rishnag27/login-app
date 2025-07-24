@@ -18,7 +18,7 @@ export default function Profile() {
     const token = localStorage.getItem("token");
     if (!token) return navigate("/");
 
-    fetch("http://127.0.0.1:5000/profile", {
+    fetch("https://login-app-m004.onrender.com/profile", {
       headers: { Authorization: "Bearer " + token },
     })
       .then((res) => res.json())
@@ -50,7 +50,7 @@ export default function Profile() {
     onSubmit: async (values) => {
       setLoading(true);
       try {
-        const res = await fetch('http://127.0.0.1:5000/profile', {
+        const res = await fetch('https://login-app-m004.onrender.com/profile', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
