@@ -13,7 +13,7 @@ export default function AdminPanel() {
   const fetchAppointments = async () => {
     setLoading(true);
     const token = localStorage.getItem("token");
-    const res = await fetch("http://127.0.0.1:5000/appointments", {
+    const res = await fetch("https://login-app-m004.onrender.com/appointments", {
       headers: { Authorization: "Bearer " + token },
     });
     const data = await res.json();
@@ -23,7 +23,7 @@ export default function AdminPanel() {
 
   const fetchUsers = async () => {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://127.0.0.1:5000/users", {
+    const res = await fetch("https://login-app-m004.onrender.com/users", {
       headers: { Authorization: "Bearer " + token },
     });
     const data = await res.json();
@@ -38,7 +38,7 @@ export default function AdminPanel() {
   const handleCreate = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    const res = await fetch("http://127.0.0.1:5000/appointments", {
+    const res = await fetch("https://login-app-m004.onrender.com/appointments", {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
       body: JSON.stringify(form),
@@ -55,7 +55,7 @@ export default function AdminPanel() {
 
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`http://127.0.0.1:5000/appointments/${id}`, {
+    const res = await fetch(`https://login-app-m004.onrender.com/appointments/${id}`, {
       method: "DELETE",
       headers: { Authorization: "Bearer " + token },
     });
@@ -76,7 +76,7 @@ export default function AdminPanel() {
   const handleEditSave = async () => {
     const token = localStorage.getItem("token");
     const { appointment } = editDialog;
-    const res = await fetch(`http://127.0.0.1:5000/appointments/${appointment.id}`, {
+    const res = await fetch(`https://login-app-m004.onrender.com/appointments/${appointment.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
       body: JSON.stringify(editForm),
@@ -93,7 +93,7 @@ export default function AdminPanel() {
 
   const handleUserRole = async (user, newRole) => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`http://127.0.0.1:5000/users/${user.id}/role`, {
+    const res = await fetch(`https://login-app-m004.onrender.com/users/${user.id}/role`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
       body: JSON.stringify({ role: newRole }),
@@ -109,7 +109,7 @@ export default function AdminPanel() {
 
   const handleUserDelete = async (user) => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`http://127.0.0.1:5000/users/${user.id}`, {
+    const res = await fetch(`https://login-app-m004.onrender.com/users/${user.id}`, {
       method: "DELETE",
       headers: { Authorization: "Bearer " + token },
     });
