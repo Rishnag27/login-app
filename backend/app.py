@@ -30,6 +30,10 @@ from config import Config
 app.config.from_object(Config)
 db.init_app(app)
 
+# Veritabanı tablolarını her başlatmada oluştur
+with app.app_context():
+    db.create_all()
+
 from flask_socketio import SocketIO, emit
 socketio = SocketIO(app, cors_allowed_origins="*")
 
@@ -207,8 +211,6 @@ def get_messages():
     ])
 
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
     import os
     port = int(os.environ.get("PORT", 5000))
     socketio.run(app, host="0.0.0.0", port=port)
